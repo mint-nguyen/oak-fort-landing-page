@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Banner from "../components/Banner";
 import MainHeaderNav from "../components/MainHeaderNav";
+import MenuBar from "../components/MenuBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function Home() {
 			<main>
 				<Banner />
 				<MainHeaderNav />
+				<MenuBar />
 			</main>
 		</>
 	);
