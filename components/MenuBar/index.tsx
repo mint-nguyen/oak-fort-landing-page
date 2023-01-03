@@ -52,7 +52,6 @@ const MenuBar = () => {
 
 	const hoveredItem = menuItems.filter((item) => item.id === menuIdShown);
 
-	console.log(menuIdShown, hoveredItem);
 	return (
 		<nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 			<div className="container flex flex-wrap items-center justify-center mx-auto">
@@ -74,6 +73,27 @@ const MenuBar = () => {
 					</ul>
 				</div>
 			</div>
+			{isSubMenuShown && hoveredItem && hoveredItem[0].subItems && (
+				<div
+					className={`container flex flex-wrap items-center justify-center mx-auto column-${hoveredItem[0].subItems.length}`}>
+					{hoveredItem[0].subItems.map((item) => {
+						return (
+							<div key={item.categories}>
+								<p className="p-4 text-black-500 font-medium">
+									{item.categories}
+								</p>
+								{item.subSubItems.map((subItem) => {
+									return (
+										<p key={subItem} className="pl-4 p-2 text-xs">
+											{subItem}
+										</p>
+									);
+								})}
+							</div>
+						);
+					})}
+				</div>
+			)}
 		</nav>
 	);
 };

@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const MainHeaderNav = () => {
 	return (
-		<div className="p-5">
+		<div className="p-5 pb-0">
 			<Stack direction="column">
 				<Stack direction="row" justifyContent="space-between">
 					<Stack direction="row" spacing={2} alignItems="center">
