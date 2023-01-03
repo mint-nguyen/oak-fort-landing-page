@@ -25,7 +25,7 @@ const menuItems = [
 			},
 			{
 				categories: `ACCESSORIES`,
-				subSubItems: ["BAGS", "SHOES"],
+				subSubItems: ["BAGS MEN", "SHOES MEN"],
 			},
 		],
 	},
@@ -62,8 +62,6 @@ const MenuBar = () => {
 								<li key={menuItem.id}>
 									<button
 										onMouseEnter={() => handleOnMouseEnterMenuItem(menuItem)}
-										onMouseLeave={() => handleOnMouseLeaveMenuItem()}
-										// eslint-disable-next-line react/no-string-refs
 										className="block py-2 pl-3 pr-4 text-black-500 rounded hover:text-gray-500 ">
 										{menuItem.mainItem}
 									</button>
@@ -75,18 +73,24 @@ const MenuBar = () => {
 			</div>
 			{isSubMenuShown && hoveredItem && hoveredItem[0].subItems && (
 				<div
+					onMouseEnter={() => handleOnMouseEnterMenuItem(hoveredItem[0])}
+					onMouseLeave={() => handleOnMouseLeaveMenuItem()}
 					className={`container flex flex-wrap items-center justify-center mx-auto column-${hoveredItem[0].subItems.length}`}>
 					{hoveredItem[0].subItems.map((item) => {
 						return (
 							<div key={item.categories}>
-								<p className="p-4 text-black-500 font-medium">
-									{item.categories}
-								</p>
+								<a href="#">
+									<p className="p-4 text-black-500 font-medium hover:underline">
+										{item.categories}
+									</p>
+								</a>
 								{item.subSubItems.map((subItem) => {
 									return (
-										<p key={subItem} className="pl-4 p-2 text-xs">
-											{subItem}
-										</p>
+										<a key={subItem} href="#">
+											<p className="pl-4 p-2 text-xs hover:underline">
+												{subItem}
+											</p>
+										</a>
 									);
 								})}
 							</div>
